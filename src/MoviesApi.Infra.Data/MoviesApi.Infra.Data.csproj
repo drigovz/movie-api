@@ -17,6 +17,14 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Context\" />
+    <Folder Include="Factory\" />
+    <Folder Include="Implementations\" />
+    <Folder Include="Mappings\" />
+    <Folder Include="Repository\" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
