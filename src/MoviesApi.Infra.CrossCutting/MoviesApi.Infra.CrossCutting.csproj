@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\MoviesApi.Domain\MoviesApi.Domain.csproj" />
+    <ProjectReference Include="..\MoviesApi.Service\MoviesApi.Service.csproj" />
+    <ProjectReference Include="..\MoviesApi.Infra.Data\MoviesApi.Infra.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.0" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+</Project>
