@@ -9,10 +9,10 @@ namespace Api.Domain.Test.Entities.Test
         [Theory]
         [InlineData("")]
         [InlineData(null)]
-        public void Should_be_not_accept_invalid_titles(string invalidNames)
+        public void Should_be_not_accept_invalid_titles(string invalidTitles)
         {
             Assert.Throws<ArgumentException>(() =>
-                MovieBuilder.New().MovieWithTitle(invalidNames).Build()
+                MovieBuilder.New().MovieWithTitle(invalidTitles).Build()
             )
             .AssertThrowsWithMessage("Title is required!");
         }
