@@ -1,9 +1,11 @@
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MoviesApi.Infra.CrossCutting.DependencyInjection;
+using MoviesApi.Infra.CrossCutting.Mappings;
 
 namespace MoviesApi.Application
 {
@@ -20,6 +22,15 @@ namespace MoviesApi.Application
         {
             ConfigureRepository.ConfigureDependenciesRepository(services);
             ConfigureService.ConfigureDependenciesServices(services);
+
+            var config = new AutoMapper.MapperConfiguration(x =>
+            {
+                x.AddProfile(new DtoToModelProfile());
+            });
+
+            IMapper mapper = config.CreateMapper();
+            services.AddSingleton(mapper);
+
             services.AddControllers();
         }
 

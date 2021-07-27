@@ -1,4 +1,6 @@
-﻿using MoviesApi.Domain.Entities;
+﻿using AutoMapper;
+using MoviesApi.Domain.DTOs.Movies;
+using MoviesApi.Domain.Entities;
 using MoviesApi.Domain.Interfaces.Repository;
 using MoviesApi.Domain.Interfaces.Services.MovieService;
 using System.Collections.Generic;
@@ -9,30 +11,38 @@ namespace MoviesApi.Service.Services
     public class MovieService : IMovieService
     {
         private readonly IRepository<Movie> _repository;
+        private readonly IMapper _mapper;
 
-        public MovieService(IRepository<Movie> repository)
+        public MovieService(IRepository<Movie> repository, IMapper mapper)
         {
             _repository = repository;
+            _mapper = mapper;
         }
 
-        public async Task<IEnumerable<Movie>> GetAllAsync()
+        public async Task<IEnumerable<MovieDTO>> GetAllAsync()
         {
-            return await _repository.GetAsync();
+            var movies = await _repository.GetAsync();
+            return _mapper.Map<IEnumerable<MovieDTO>>(movies);
         }
 
-        public async Task<Movie> GetAsync(int id)
+        public async Task<MovieDTO> GetAsync(int id)
         {
-            return await _repository.GetByIdAsync(id);
+            var entity = await _repository.GetByIdAsync(id);
+            return _mapper.Map<MovieDTO>(entity);
         }
 
-        public async Task<Movie> PostAsync(Movie movie)
+        public async Task<MovieDTO> PostAsync(MovieDTO movie)
         {
-            return await _repository.AddAsync(movie);
+            var entity = _mapper.Map<Movie>(movie);
+            var result = await _repository.AddAsync(entity);
+            return _mapper.Map<MovieDTO>(result);
         }
 
-        public async Task<Movie> PutAsync(Movie movie)
+        public async Task<MovieDTO> PutAsync(MovieDTO movie)
         {
-            return await _repository.UpdateAsync(movie);
+            var entity = _mapper.Map<Movie>(movie);
+            var result = await _repository.UpdateAsync(entity);
+            return _mapper.Map<MovieDTO>(result);
         }
 
         public async Task<bool> DeleteAsync(int id)
