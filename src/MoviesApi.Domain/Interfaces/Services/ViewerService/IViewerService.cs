@@ -1,5 +1,4 @@
 ﻿using MoviesApi.Domain.DTOs.Viewers;
-using MoviesApi.Domain.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 

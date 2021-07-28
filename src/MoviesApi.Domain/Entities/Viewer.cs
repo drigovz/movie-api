@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text.RegularExpressions;
 
 namespace MoviesApi.Domain.Entities
@@ -9,6 +11,7 @@ namespace MoviesApi.Domain.Entities
         public int Age { get; private set; }
         public string Email { get; private set; }
         public string PhoneNumber { get; private set; }
+        public ICollection<MovieViewer> Movies { get; set; } = new Collection<MovieViewer>();
 
         private Viewer()
         {

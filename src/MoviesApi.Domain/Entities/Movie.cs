@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text.RegularExpressions;
 
 namespace MoviesApi.Domain.Entities
@@ -9,6 +11,7 @@ namespace MoviesApi.Domain.Entities
         public string Synopsis { get; private set; }
         public int ReleaseYear { get; private set; }
         public string DirectedBy { get; private set; }
+        public ICollection<MovieViewer> Viewers { get; set; } = new Collection<MovieViewer>();
 
         private Movie()
         {
