@@ -20,7 +20,6 @@
 
   <ItemGroup>
     <Folder Include="Factory\" />
-    <Folder Include="Implementations\" />
   </ItemGroup>
 
   <PropertyGroup>

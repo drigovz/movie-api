@@ -1,4 +1,5 @@
-﻿using MoviesApi.Domain.DTOs.MovieViewer;
+﻿using MoviesApi.Domain.DTOs.Movies;
+using MoviesApi.Domain.DTOs.MovieViewer;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -11,5 +12,6 @@ namespace MoviesApi.Domain.Interfaces.Services.MovieViewerService
         Task<MovieViewerDTO> PostAsync(MovieViewerDTO viewer);
         Task<MovieViewerDTO> PutAsync(MovieViewerDTO viewer);
         Task<bool> DeleteAsync(int id);
+        Task<IEnumerable<MovieDTO>> GetMoviesOfViewer(int viewerId);
     }
 }

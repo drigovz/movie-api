@@ -1,7 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using MoviesApi.Domain.Interfaces.Repository;
+using MoviesApi.Domain.Interfaces.Repository.MovieViewers;
 using MoviesApi.Infra.Data.Context;
+using MoviesApi.Infra.Data.Implementations;
 using MoviesApi.Infra.Data.Repository;
 using System.IO;
 
@@ -12,6 +14,7 @@ namespace MoviesApi.Infra.CrossCutting.DependencyInjection
         public static void ConfigureDependenciesRepository(IServiceCollection services)
         {
             services.AddScoped(typeof(IRepository<>), typeof(BaseRepository<>));
+            services.AddScoped<IMovieViewerRepository, MovieViewerImplementation>();
 
             var pathEnvFile = Path.GetFullPath("../../.env");
 
