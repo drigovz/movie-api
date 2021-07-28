@@ -12,6 +12,7 @@ namespace MoviesApi.Infra.CrossCutting.Mappings
         {
             CreateMap<Movie, MovieDTO>().ReverseMap();
             CreateMap<Viewer, ViewerDTO>().ReverseMap();
+            CreateMap<Viewer, ViewerDetailsDTO>().ReverseMap();
             CreateMap<MovieViewer, MovieViewerDTO>().ReverseMap();
         }
     }

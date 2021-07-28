@@ -2,8 +2,10 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using MoviesApi.Domain.DTOs.Viewers;
+using MoviesApi.Domain.Interfaces.Services.MovieViewerService;
 using MoviesApi.Domain.Interfaces.Services.ViewerService;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace MoviesApi.Application.Controllers
@@ -15,10 +17,12 @@ namespace MoviesApi.Application.Controllers
     public class ViewersController : ControllerBase
     {
         private readonly IViewerService _service;
+        private readonly IMovieViewerService _movieViewerService;
 
-        public ViewersController(IViewerService service)
+        public ViewersController(IViewerService service, IMovieViewerService movieViewerService)
         {
             _service = service;
+            _movieViewerService = movieViewerService;
         }
 
         [HttpGet]
@@ -41,6 +45,8 @@ namespace MoviesApi.Application.Controllers
             try
             {
                 var viewer = await _service.GetAsync(id);
+                viewer.Movies = await _movieViewerService.GetMoviesOfViewer(id);
+                viewer.TotalMovies = viewer.Movies.Count();
                 return new ObjectResult(viewer);
             }
             catch

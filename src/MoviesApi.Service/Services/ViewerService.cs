@@ -27,12 +27,10 @@ namespace MoviesApi.Service.Services
             return _mapper.Map<IEnumerable<ViewerDTO>>(viewer);
         }
 
-        public async Task<ViewerDTO> GetAsync(int id)
+        public async Task<ViewerDetailsDTO> GetAsync(int id)
         {
             var entity = await _repository.GetByIdAsync(id);
-            //var r = await _movieRepository.GetAsync();
-            //entity.Movies = 
-            return _mapper.Map<ViewerDTO>(entity);
+            return _mapper.Map<ViewerDetailsDTO>(entity);
         }
 
         public async Task<ViewerDTO> PostAsync(ViewerDTO viewer)
