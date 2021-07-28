@@ -13,5 +13,6 @@ namespace MoviesApi.Domain.Interfaces.Services.MovieViewerService
         Task<MovieViewerDTO> PutAsync(MovieViewerDTO viewer);
         Task<bool> DeleteAsync(int id);
         Task<IEnumerable<MovieDTO>> GetMoviesOfViewer(int viewerId);
+        Task<int> ViewersOfMovie(int movieId);
     }
 }

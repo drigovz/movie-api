@@ -71,5 +71,10 @@ namespace MoviesApi.Service.Services
             var result = await _repository.MoviesOfViewer(viewerId);
             return _mapper.Map<IEnumerable<MovieDTO>>(result);
         }
+
+        public async Task<int> ViewersOfMovie(int movieId)
+        {
+            return await _repository.ViewersOfMovie(movieId);
+        }
     }
 }

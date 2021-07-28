@@ -34,5 +34,12 @@ namespace MoviesApi.Infra.Data.Implementations
 
             return movies;
         }
+
+        public async Task<int> ViewersOfMovie(int movieId)
+        {
+            var viewersMovie = await _dataset.Where(x => x.MovieId == movieId).ToListAsync();
+            var result = viewersMovie.Count() > 0 ? viewersMovie.Count() : 0;
+            return result;
+        }
     }
 }

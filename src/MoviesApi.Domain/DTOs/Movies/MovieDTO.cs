@@ -17,5 +17,6 @@ namespace MoviesApi.Domain.DTOs.Movies
         public int ReleaseYear { get; set; }
 
         public string DirectedBy { get; set; }
+        public int TotalViewers { get; set; } = 0;
     }
 }
