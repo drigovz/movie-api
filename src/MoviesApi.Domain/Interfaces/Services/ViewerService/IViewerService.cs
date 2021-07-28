@@ -1,4 +1,5 @@
-﻿using MoviesApi.Domain.Entities;
+﻿using MoviesApi.Domain.DTOs.Viewers;
+using MoviesApi.Domain.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
@@ -6,10 +7,10 @@ namespace MoviesApi.Domain.Interfaces.Services.ViewerService
 {
     public interface IViewerService
     {
-        Task<IEnumerable<Viewer>> GetAllAsync();
-        Task<Movie> GetAsync(int id);
-        Task<Movie> PostAsync(Viewer viewer);
-        Task<Movie> PutAsync(Viewer viewer);
+        Task<IEnumerable<ViewerDTO>> GetAllAsync();
+        Task<ViewerDTO> GetAsync(int id);
+        Task<ViewerDTO> PostAsync(ViewerDTO viewer);
+        Task<ViewerDTO> PutAsync(ViewerDTO viewer);
         Task<bool> DeleteAsync(int id);
     }
 }
