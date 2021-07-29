@@ -4,7 +4,7 @@
     "MoviesApi.Application": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "/swagger/index.html",
+      "launchUrl": "swagger/ui/index.html",
       "applicationUrl": "http://localhost:5000",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"

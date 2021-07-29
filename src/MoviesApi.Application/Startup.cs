@@ -43,10 +43,9 @@ namespace MoviesApi.Application
                     Title = "Movies Api Doc",
                     Description = "API para gerenciamento de filmes e espectadores \n" +
                                   "Para o correto funcionamento e teste desta API. \n" +
-                                  " * Primeiro cadastre filmes (Movies). Informe os campos: Title, Synopsis e ReleaseYear; \n" +
-                                  " * Depois, cadastre os espectadores (Viewers) dos filmes. Informe os campos: Name, Age, Email e PhoneNumber; \n" +
-                                  " * Por fim, você pode indicar que um espectador assistiu a um filme. Informe o ID do espectador e o ID do filme. \n" +
-                                  "\n",
+                                  "   * Primeiro cadastre filmes (Movies). Informe os campos: <b>Title</b>,<b>Synopsis</b> e <b>ReleaseYear</b>; \n" +
+                                  "   * Depois, cadastre os espectadores (Viewers) dos filmes. Informe os campos: <b>Name</b>, <b>Age</b>, <b>Email</b> e <b>PhoneNumber</b>" + "; \n" +
+                                  "   * Por fim, você pode indicar que um espectador assistiu a um filme. Informe o <b>ID do espectador</b> e o <b>ID do filme</b>.",
                     TermsOfService = new Uri("https://cla.opensource.microsoft.com/"),
                     Contact = new OpenApiContact
                     {

@@ -1,10 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
-using MoviesApi.Domain.DTOs.Movies;
 using MoviesApi.Domain.DTOs.MovieViewer;
 using MoviesApi.Domain.Interfaces.Services.MovieViewerService;
-using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace MoviesApi.Application.Controllers
@@ -21,7 +18,11 @@ namespace MoviesApi.Application.Controllers
         {
             _service = service;
         }
-
+        /// <summary>
+        /// Insere um espectador em um filme
+        /// </summary>
+        /// <param name="movie">Objeto contendo o ID do espectador e o ID do filme</param>
+        /// <returns>Retorna informações do novo espectador inserido</returns>
         [HttpPost]
         public async Task<ActionResult> PostAsync([FromBody] MovieViewerDTO movie)
         {
@@ -41,20 +42,6 @@ namespace MoviesApi.Application.Controllers
             catch
             {
                 return StatusCode(StatusCodes.Status500InternalServerError, "Error when try to add a new movie viewer");
-            }
-        }
-
-        [HttpGet("{id:int}")]
-        public async Task<ActionResult<IEnumerable<MovieDTO>>> GetMoviesOfViewerAsync([BindRequired] int id)
-        {
-            try
-            {
-                var viewer = await _service.GetMoviesOfViewer(id);
-                return Ok(viewer);
-            }
-            catch
-            {
-                return StatusCode(StatusCodes.Status500InternalServerError, "Error when try to connect on server");
             }
         }
     }

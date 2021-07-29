@@ -24,6 +24,10 @@ namespace MoviesApi.Application.Controllers
             _movieViewerService = movieViewerService;
         }
 
+        /// <summary>
+        /// Buscar todos os filmes cadastrados
+        /// </summary>
+        /// <returns>Retorna uma lista com todos os filmes cadastrados no banco de dados</returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<MovieDTO>>> GetAllAsync()
         {
@@ -32,7 +36,7 @@ namespace MoviesApi.Application.Controllers
                 var movies = await _service.GetAllAsync();
                 foreach (var movie in movies)
                     movie.TotalViewers = await _movieViewerService.ViewersOfMovie(movie.Id);
-                
+
                 return Ok(movies);
             }
             catch
@@ -41,6 +45,11 @@ namespace MoviesApi.Application.Controllers
             }
         }
 
+        /// <summary>
+        /// Exibe detalhes de um determinado filme
+        /// </summary>
+        /// <param name="id">ID do filme</param>
+        /// <returns>Retorna um objeto contendo todos os detalhes de um filme</returns>
         [HttpGet("{id:int}")]
         public async Task<ActionResult> GetAsync([BindRequired] int id)
         {
@@ -56,6 +65,11 @@ namespace MoviesApi.Application.Controllers
             }
         }
 
+        /// <summary>
+        /// Insere um novo filme na base de dados.
+        /// </summary>
+        /// <param name="movie">Dados do filme a ser inserido</param>
+        /// <returns>Retorna informações do novo filme inserido</returns>
         [HttpPost]
         public async Task<ActionResult> PostAsync([FromBody] MovieDTO movie)
         {
@@ -78,6 +92,12 @@ namespace MoviesApi.Application.Controllers
             }
         }
 
+        /// <summary>
+        /// Atualiza informações de um filme
+        /// </summary>
+        /// <param name="id">ID do filme a ser atualizado</param>
+        /// <param name="movie">Dados do filme a ser atualizado</param>
+        /// <returns>Retorna mensagem de sucesso em atualizações bem sucedidas</returns>
         [HttpPut("{id:int}")]
         public async Task<ActionResult> PutAsync([BindRequired] int id, [FromBody] MovieDTO movie)
         {
@@ -99,6 +119,11 @@ namespace MoviesApi.Application.Controllers
             }
         }
 
+        /// <summary>
+        /// Exclui um filme cadastrado
+        /// </summary>
+        /// <param name="id">ID do filme a ser excluído</param>
+        /// <returns>Mensagem de exclusão bem sucedida</returns>
         [HttpDelete("{id:int}")]
         public async Task<ActionResult> DeleteAsync([BindRequired] int id)
         {

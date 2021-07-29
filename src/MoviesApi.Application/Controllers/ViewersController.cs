@@ -25,6 +25,10 @@ namespace MoviesApi.Application.Controllers
             _movieViewerService = movieViewerService;
         }
 
+        /// <summary>
+        /// Buscar todos os espectadores cadastrados
+        /// </summary>
+        /// <returns>Retorna uma lista com todos os espectadores cadastrados no banco de dados</returns>
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ViewerDTO>>> GetAllAsync()
         {
@@ -39,6 +43,11 @@ namespace MoviesApi.Application.Controllers
             }
         }
 
+        /// <summary>
+        /// Exibe detalhes de um determinado espectador
+        /// </summary>
+        /// <param name="id">ID do filme</param>
+        /// <returns>Retorna um objeto contendo todos os detalhes de um espectador</returns>
         [HttpGet("{id:int}")]
         public async Task<ActionResult> GetAsync([BindRequired] int id)
         {
@@ -55,6 +64,11 @@ namespace MoviesApi.Application.Controllers
             }
         }
 
+        /// <summary>
+        /// Insere um novo espectador na base de dados.
+        /// </summary>
+        /// <param name="viewer">Dados do espectador a ser inserido</param>
+        /// <returns>Retorna informações do novo espectador inserido</returns>
         [HttpPost]
         public async Task<ActionResult> PostAsync([FromBody] ViewerDTO viewer)
         {
@@ -77,6 +91,12 @@ namespace MoviesApi.Application.Controllers
             }
         }
 
+        /// <summary>
+        /// Atualiza informações de um espectador
+        /// </summary>
+        /// <param name="id">ID do espectador a ser atualizado</param>
+        /// <param name="viewer">Dados do espectador a ser atualizado</param>
+        /// <returns>Retorna mensagem de sucesso em atualizações bem sucedidas</returns>
         [HttpPut("{id:int}")]
         public async Task<ActionResult> PutAsync([BindRequired] int id, [FromBody] ViewerDTO viewer)
         {
@@ -98,6 +118,11 @@ namespace MoviesApi.Application.Controllers
             }
         }
 
+        /// <summary>
+        /// Exclui um espectador cadastrado
+        /// </summary>
+        /// <param name="id">ID do espectador a ser excluído</param>
+        /// <returns>Mensagem de exclusão bem sucedida</returns>
         [HttpDelete("{id:int}")]
         public async Task<ActionResult> DeleteAsync([BindRequired] int id)
         {
