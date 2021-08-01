@@ -8,9 +8,9 @@ API to manage movies and viewers with C# and ASP.NET Core Web API
 
 ### Start application
 
-#### Como iniciar essa aplicação
+#### How to start this application
 
-Para iniciar essa aplicação, você precisa primeiramente, criar um arquivo chamado **.env** e adicionar valores para as seguintes variáveis:
+To start this application, you first need to create a file on the root path of application called **.env** and add values for the following variables:
 
 `SQL_SERVER_ADDRESS=`
 `SQL_CATALOG=MovieDb`
@@ -21,37 +21,37 @@ Para iniciar essa aplicação, você precisa primeiramente, criar um arquivo cha
 `SQLPAD_ADMIN_PASSWORD=`
 `SQLPAD_CONNECTIONS__sqlserverdemo__name=SQL Server Dev` 
 
-Valores sugeridos para as variáveis são:
-* localhost - para a variável `SQL_SERVER_ADDRESS` que é o nome do servidor de banco de dados onde o banco de dados da aplicação está rodando, nesta aplicação de exemplo, o banco se encontra em um container do Docker;
-* MovieDB - para a variável `SQL_CATALOG` que é o nome do banco de dados;
-* `SQL_USER_ID` nome do usuário de banco de dados;
-* `SQL_PASSWORD` senha do banco de dados, recomendamos usar uma senha forte, com caracteres especiais, letras maiusculas, letras minúsculas e números;
-* `SQLPAD_ADMIN` e `SQLPAD_ADMIN_PASSWORD` são login e senha utilizados pelo SQL Pad, aplicação utilizada para visualizar o banco de dados;
+Suggested values for variables are:
+* **localhost** - for the variable `SQL_SERVER_ADDRESS` which is the name of the database server where the application's database is running, in this example, the database is located in a Docker container;
+* **MovieDB** - for the variable `SQL_CATALOG`, is the name of database;
+* `SQL_USER_ID` user database name;
+* `SQL_PASSWORD` password database, we recommend using a strong password, with special characters, uppercase letters, lowercase letters and numbers;
+* `SQLPAD_ADMIN` and `SQLPAD_ADMIN_PASSWORD` are login and password used by SQL Pad, application used to view the database;
 
-Após modificar os valores das variáveis, você deve rodar o comando do Docker para iniciar a criação e instância dos contêineres do Docker. Para isso, utilize o seguinte comando:
+After modifying the variable values, you must run the Docker command to start creating the Docker containers. To do this, use the following command:
 
 `docker-compose up -d`
 
-Após os containeres serem iniciados, você terá os seguintes endereços disponíveis:
+After the containers are started, you will have the following addresses available:
 
-* `localhost:1433` - para o banco de dados SQL Server;
-* `http://localhost:3011` - para o SQL Pad, onde você poderá navegar pelo banco de dados e visualizar as tabelas; 
+* `localhost:1433` - for the SQL Server Database;
+* `http://localhost:3011` - for SQL Pad, where you can browse the database and view the tables; 
 
 
 
-#### Subir a aplicação
-Abra o arquivo de solução do projeto (arquivo **MoviesApi.sln**) no Visual Studio, depois, vá na opção **Build** em seguida **Build Solution**. Após isso, inicie a aplicação com a tecla de atalho **CTRL + F5**.
+#### Up the application
+Open the project solution file (**MoviesApi.sln**) in Visual Studio, then go to option **Build** then **Build Solution**. After that, start the application with the shortcut key **CTRL + F5**.
 
-Após isso, a aplicação será iniciada no navegador e abrirá o endereço:
+The application will start in web browser and open the address:
 * `http://localhost:5000/swagger/ui/index.html`
 
 
 
-#### Visualizar o banco de dados
+#### View the database
 
-Acesse o endereço: `http://localhost:3011` insira o login e senha que estão no arquivo **.env** na pasta raiz da aplicação.
+Access the address: `http://localhost:3011` insert the login and password that are in the **.env** file in the root folder of the application.
 
 ![movies-api-1.png](https://i.postimg.cc/63bJWVvx/movies-api-1.png)
 
-Em seguida, insira os dados necessários para criar a coneção com o banco de dados SQL Server:
+Then enter the necessary data to create the connection to the SQL Server database:
 ![movies-api-2.png](https://i.postimg.cc/hjtRRZh0/movies-api-2.png)
